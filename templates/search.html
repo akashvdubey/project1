@@ -1,0 +1,35 @@
+{%extends "Layout.html"%}
+{%block title%}
+book search
+{%endblock%}
+
+{%block heading%}
+{%if books%}
+<h1>Showing results for names like '{{keyword}}' total {{count}} results found</h1><br>
+{%else%}
+<h1>Welcome To book search</h1><br>
+{%endif%}
+{%endblock%}
+
+{%block body%}
+<form class="" action="{{url_for('search')}}" method="post">
+<input type="text" name="keyword" value="">
+<input class="btn btn-primary" type="submit" name="search" value="Search">
+</form>
+<table class="table table-hover">
+  <tr>
+    <th class="col">ISBN</th>
+    <th class="col">TITLE</th>
+    <th class="col">AUTHOR</th>
+    <th class="col">YEAR</th>
+  </tr>
+{%for isbn,title,author,year in books%}
+  <tr>
+    <td>{{isbn}}</td>
+    <td>{{title}}</td>
+    <td>{{author}}</td>
+    <td>{{year}}</td>
+  </tr>
+{%endfor%}
+</table>
+{%endblock%}

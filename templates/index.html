@@ -1,0 +1,19 @@
+{%extends "Layout.html"%}
+{%block title%}
+all books
+{%endblock%}
+{%block heading%}
+<h1>Welcome to the book reviews...</h1>
+{%endblock%}
+{%block body%}
+<table class="table table-hover">
+{%for isbn,title,author,year in books%}
+  <tr>
+    <td>{{isbn}}</td>
+    <td>{{title}}</td>
+    <td>{{author}}</td>
+    <td>{{year}}</td>
+  </tr>
+{%endfor%}
+</table>
+{%endblock%}
