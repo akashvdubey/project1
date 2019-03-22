@@ -1,0 +1,25 @@
+{%extends "Layout.html"%}
+{%block heading%}
+<h2 class="alert alert-primary">Notes</h2>
+{%endblock%}
+
+
+
+{%block title%}
+notes
+{%endblock%}
+
+
+
+{%block body%}
+{{session}}
+<ul>
+  {%for note in notes%}
+  <li>{{note}}</li>
+  {%endfor%}
+</ul>
+<form class="" action="{{url_for('notes')}}" method="get">
+  <input type="text" name="note" value="">
+  <button type="submit" name="button">Add Note</button>
+</form>
+{%endblock%}
