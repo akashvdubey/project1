@@ -1,12 +1,57 @@
 {%extends "Layout.html"%}
 {%block title%}
-all books
+books review
 {%endblock%}
 {%block heading%}
 <h1>Welcome to the book reviews...</h1>
 {%endblock%}
 {%block body%}
-<table class="table table-hover">
+<!--<h1 class="alert alert-primary">Login</h1> <br>
+<form class="form-group" action="{{url_for('index')}}" method="post">
+  <input type="username" name="username" value=""><br><br>
+  <input type="password" name="password" value="" placeholder="***********"><br><br>
+  <input class="btn btn-primary" type="submit" name="" value="Login">
+</form>-->
+{%if user%}
+{%for id,user,pas in user%}
+<h1 class="alert alert-danger">ACCOUNT WITH CREDENTIALS id ={{id}} <br>username= {{user}} <br> password ={{pas}} CREATED</h1><br>
+{%endfor%}
+{%else%}
+<h1 class="alert alert-primary">{{heading}}{{username}}</h1>
+<h3 class="alert alert-primary">Sign up</h3>
+
+
+
+
+
+<form class="form form-group" action="{{url_for('signup')}}" method="post">
+    <input type="username" name="username" value=""><br>
+      <br>
+    <input type="password" name="password" value="" placeholder="******"><br>
+    <input class="btn btn-primary" type="submit" name="" value="Sign Up">
+</form>
+
+
+
+
+
+<h3 class="alert alert-primary">Or Login</h3>
+  <form class="form form-group" action="{{url_for('login')}}" method="post">
+  <input type="username" name="username" value=""><br>
+  <br>
+  <input type="password" name="password" value="" placeholder="******"><br>
+  <input class="btn btn-primary" type="submit" name="" value="Login">
+</form>
+
+
+
+
+{{session}}
+<form class="" action="{{url_for('logout')}}" method="post">
+  <input type="submit" name="logout" value="logout">
+</form>
+{%endif%}
+<!--<table class="table table-hover">
 {%for isbn,title,author,year in books%}
   <tr>
     <td>{{isbn}}</td>
@@ -15,5 +60,7 @@ all books
     <td>{{year}}</td>
   </tr>
 {%endfor%}
+
 </table>
+-->
 {%endblock%}

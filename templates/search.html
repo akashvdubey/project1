@@ -5,7 +5,7 @@ book search
 
 {%block heading%}
 {%if books%}
-<h1 class="alert alert-success">Showing results for names like '{{keyword}}' total {{count}} results found</h1><br>
+<h1 class="alert alert-success">Showing results for names like '{{keyword}}' total {{count}} results found {{session}}</h1><br>
 {%else%}
 <h1>Welcome To book search</h1><br>
 {%endif%}
@@ -33,7 +33,9 @@ book search
   </tr>
 {%endfor%}
 {%else%}
+{%if keyword%}
 <h3 class="alert alert-danger">NO results found naming "{{keyword}}"</h3>
+{%endif%}
 {%endif%}
 </table>
 {%endblock%}
