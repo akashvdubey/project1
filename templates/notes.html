@@ -18,7 +18,7 @@ notes
   <li>{{note}}</li>
   {%endfor%}
 </ul>
-<form class="" action="{{url_for('notes')}}" method="get">
+<form class="" action="{{url_for('notes')}}" method="post">
   <input type="text" name="note" value="">
   <button type="submit" name="button">Add Note</button>
 </form>

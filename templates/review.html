@@ -1,0 +1,20 @@
+{% extends "Layout.html"%}
+{%block title%}
+{{book_title.title}}
+{%endblock%}
+
+{%block heading %}
+add your comments about <i>{{book_title.title}}</i>
+{%endblock%}
+{%block body%}
+<fieldset>
+
+<form class="" action="{{url_for('review',isbn = book_title.isbn)}}" method="post">
+  <p>Enter the book's review below</p>
+  <textarea name="review" rows="8" cols="80" style="display:inline;"></textarea><br>
+  <p style="float:left;display:block;">enter the review points</p>
+  <input type="number" name="points" value="">
+  <input type="submit" name="" value="">
+</form>
+</fieldset>
+{%endblock%}

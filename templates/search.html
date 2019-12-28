@@ -27,13 +27,16 @@ book search
 {%for isbn,title,author,year in books%}
   <tr>
     <td>ISBN{{isbn}}</td>
-    <td>{{title}}</td>
+    <td><a href="{{url_for('review',isbn=isbn)}}">{{title}}</a></td>
     <td>{{author}}</td>
     <td>{{year}}</td>
   </tr>
+
 {%endfor%}
 {%else%}
-{%if keyword%}
+{%if keyword == ""%}
+<h3 class="alert alert-danger">Please input the name of the book you are looking for!</h3>
+{%elif keyword%}
 <h3 class="alert alert-danger">NO results found naming "{{keyword}}"</h3>
 {%endif%}
 {%endif%}
